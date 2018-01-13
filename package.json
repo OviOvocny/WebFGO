@@ -1,0 +1,34 @@
+{
+  "name": "webfgo",
+  "version": "0.1.0",
+  "description": "WebGL based viewer for FGO cards",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -d src/index.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OviOvocny/WebFGO.git"
+  },
+  "keywords": [
+    "webgl",
+    "fgo",
+    "three.js"
+  ],
+  "author": "Ovi Ovocny",
+  "license": "LGPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/OviOvocny/WebFGO/issues"
+  },
+  "homepage": "https://github.com/OviOvocny/WebFGO#readme",
+  "devDependencies": {
+    "browserify": "^15.1.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "@types/three": "^0.89.2",
+    "dat.gui": "^0.6.5",
+    "lerp": "^1.0.3",
+    "three": "^0.89.0"
+  }
+}
