@@ -87,6 +87,8 @@ class ClassLayer extends CardLayer {
   private linkId: string
   private uri: string
   private texture: THREE.Texture
+  private normalUri: string
+  private normalTexture: THREE.Texture
 
   constructor (servantClass = CLASSES.ALL, rarity = 1, w = 100) {
     super(w, w)
@@ -97,9 +99,14 @@ class ClassLayer extends CardLayer {
     this.texture = new THREE.TextureLoader().load(this.uri)
     this.texture.minFilter = THREE.LinearFilter
     this.material.map = this.texture
+    this.normalUri = `${texturesDirectory}/normal_maps/cards/servant/obverse/class/${this.class}.png`
+    this.normalTexture = new THREE.TextureLoader().load(this.normalUri)
+    this.normalTexture.minFilter = THREE.LinearFilter
+    this.material.normalMap = this.normalTexture
     this.material.transparent = true
     this.material.alphaTest = .5
-    this.position.y = -373
+    this.position.y = -374
+    this.position.x = 1
   }
 }
 
@@ -108,6 +115,8 @@ class FrameLayer extends CardLayer {
   private rarity: number
   private uri: string
   private texture: THREE.Texture
+  private normalUri: string
+  private normalTexture: THREE.Texture
 
   constructor (type = TYPES.SERVANT, rarity = 1, w = 512, h = 874) {
     super(w, h)
@@ -116,6 +125,10 @@ class FrameLayer extends CardLayer {
     this.uri = `${texturesDirectory}/maps/cards/${this.fgoType}/obverse/frame/${this.rarity}.png`
     this.texture = new THREE.TextureLoader().load(this.uri)
     this.texture.minFilter = THREE.LinearFilter
+    this.normalUri = `${texturesDirectory}/normal_maps/cards/${this.fgoType}/obverse/frame/${this.rarity}.png`
+    this.normalTexture = new THREE.TextureLoader().load(this.normalUri)
+    this.normalTexture.minFilter = THREE.LinearFilter
+    this.material.normalMap = this.normalTexture
     this.material.map = this.texture
     this.material.transparent = true
     this.material.polygonOffset = true

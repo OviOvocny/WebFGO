@@ -52,7 +52,7 @@ var Card = /** @class */ (function (_super) {
         return _this;
     }
     Card.prototype.compose = function () {
-        for (var i = this.children.length - 1; i >= 0; i--) {
+        for (var i = this.children.length - 1; i > 0; i--) {
             this.remove(this.children[i]);
         }
         console.log(this.children);
@@ -103,9 +103,14 @@ var ClassLayer = /** @class */ (function (_super) {
         _this.texture = new THREE.TextureLoader().load(_this.uri);
         _this.texture.minFilter = THREE.LinearFilter;
         _this.material.map = _this.texture;
+        _this.normalUri = texturesDirectory + "/normal_maps/cards/servant/obverse/class/" + _this.class + ".png";
+        _this.normalTexture = new THREE.TextureLoader().load(_this.normalUri);
+        _this.normalTexture.minFilter = THREE.LinearFilter;
+        _this.material.normalMap = _this.normalTexture;
         _this.material.transparent = true;
         _this.material.alphaTest = .5;
-        _this.position.y = -373;
+        _this.position.y = -374;
+        _this.position.x = 1;
         return _this;
     }
     return ClassLayer;
@@ -123,6 +128,10 @@ var FrameLayer = /** @class */ (function (_super) {
         _this.uri = texturesDirectory + "/maps/cards/" + _this.fgoType + "/obverse/frame/" + _this.rarity + ".png";
         _this.texture = new THREE.TextureLoader().load(_this.uri);
         _this.texture.minFilter = THREE.LinearFilter;
+        _this.normalUri = texturesDirectory + "/normal_maps/cards/" + _this.fgoType + "/obverse/frame/" + _this.rarity + ".png";
+        _this.normalTexture = new THREE.TextureLoader().load(_this.normalUri);
+        _this.normalTexture.minFilter = THREE.LinearFilter;
+        _this.material.normalMap = _this.normalTexture;
         _this.material.map = _this.texture;
         _this.material.transparent = true;
         _this.material.polygonOffset = true;

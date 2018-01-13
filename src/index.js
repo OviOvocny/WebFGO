@@ -75,7 +75,7 @@ gui.add(card.userData, 'type').options({
     }
     card.userData.type = type;
 }).name('Card type');
-gui.add(card.userData, 'rarity', 1, 5, 1).name('Rarity (stars)');
+gui.add(card.userData, 'rarity', 0, 5, 1).name('Rarity (stars)');
 gui.add(card.userData, 'id').name('Card ID');
 var sc = gui.addFolder('Servant attributes');
 sc.add(card.userData, 'servantClass').options({
